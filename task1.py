@@ -1,14 +1,14 @@
-money_capital = 20000  # Подушка безопасности
-salary = 5000  # Ежемесячная зарплата
-spend = 6000  # Траты за первый месяц
-increase = 0.05  # Ежемесячный рост цен
-counter = 0
-delta=spend-salary
-while (delta < money_capital):
-    delta=spend-salary
-    money_capital-=delta
-    spend+=spend*counter*increase
-    counter+=1
-counter+=1 #прибавка к счетчику за первый месяц
-print("Количество месяцев, которое можно протянуть без долгов:", counter)
+def find_item_index(items_list, item):
+    if item in items_list:
+        return items_list.index(item)
+    else:
+        return None
 
+items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
+
+for find_item in ['банан', 'груша', 'персик']:
+    index_item = find_item_index(items_list, find_item)
+    if index_item is not None:
+        print(f"Первое вхождение товара '{find_item}' имеет индекс {index_item}.")
+    else:
+        print(f"Товар '{find_item}' не найден в списке.")
