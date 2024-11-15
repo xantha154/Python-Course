@@ -1,10 +1,18 @@
-salary = 5000  # Ежемесячная зарплата
-spend = 6000  # Траты за первый месяц
-months = 10  # Количество месяцев, которое планируется протянуть без долгов
-increase = 0.03  # Ежемесячный рост цен
-money_capital = 0
-for i in range (months):
-    delta = spend - salary
-    spend += spend * increase
-    money_capital += delta
-print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital))
+def find_common_participants(group1, group2, splitter=','):
+
+    participants1 = group1.split(splitter)
+    participants2 = group2.split(splitter)
+    common_participants = []
+    for i in participants1:
+        for j in participants2:
+            if i == j:
+                common_participants.append(i)
+
+    return sorted(common_participants)
+
+
+participants_first_group = "Иванов|Петров|Сидоров"
+participants_second_group = "Петров|Сидоров|Смирнов"
+
+print(find_common_participants(participants_first_group, participants_second_group, splitter='|'))
+
